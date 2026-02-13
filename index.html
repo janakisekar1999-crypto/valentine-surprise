@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Valentine Surprise 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffc0cb, #ff9ecb, #ffd6e7);
+      overflow-x: hidden;
+      color: #ffffff;
+      text-align: center;
+    }
+    .container { padding: 40px 20px; }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 60px;
+      margin-top: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .subtitle {
+      font-size: 22px;
+      margin-bottom: 30px;
+      animation: fadeIn 3s ease-in-out;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .photo {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      transform: scale(0.95);
+      transition: transform 0.4s ease;
+      background: white;
+    }
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .photo:hover { transform: scale(1); }
+    .love-note {
+      max-width: 800px;
+      margin: 40px auto;
+      font-size: 24px;
+      line-height: 1.8;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 30px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      animation: fadeIn 4s ease-in-out;
+    }
+    .heart {
+      font-size: 40px;
+      animation: heartbeat 1.5s infinite;
+    }
+    iframe { display: none; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Music: Anbil Avan -->
+  <iframe 
+    src="https://www.youtube.com/embed/1WZ9V1n6WcM?autoplay=1&loop=1&playlist=1WZ9V1n6WcM" 
+    allow="autoplay">
+  </iframe>
+
+  <div class="container">
+    <h1>Happy Valentine's Day, My Love ❤️</h1>
+    <div class="subtitle">A little surprise made with all my love just for you</div>
+
+    <div class="love-note">
+      From our first picture together to our beautiful wedding and our little girl's first month,
+      every moment with you is my favorite memory. 💕<br><br>
+      You are my happiness, my strength, and my forever.<br><br>
+      I love you more than words can ever express.
+      <div class="heart">💖</div>
+    </div>
+
+    <div class="gallery">
+      <div class="photo"><img src="First picture of us.jpg"></div>
+      <div class="photo"><img src="First dinner together.jpg"></div>
+      <div class="photo"><img src="Engagement.jpg"></div>
+      <div class="photo"><img src="Our wedding moment.jpg"></div>
+      <div class="photo"><img src="Honeymoon.jpg"></div>
+      <div class="photo"><img src="Our little girl's first month pic.jpg"></div>
+    </div>
+  </div>
+</body>
+</html>
