@@ -1,107 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Valentine Surprise 💖</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #ffc0cb, #ff9ecb, #ffd6e7);
-      overflow-x: hidden;
-      color: #ffffff;
-      text-align: center;
-    }
-    .container { padding: 40px 20px; }
-    h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 60px;
-      margin-top: 20px;
-      animation: fadeIn 2s ease-in-out;
-    }
-    .subtitle {
-      font-size: 22px;
-      margin-bottom: 30px;
-      animation: fadeIn 3s ease-in-out;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-    .photo {
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-      transform: scale(0.95);
-      transition: transform 0.4s ease;
-      background: white;
-    }
-    .photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .photo:hover { transform: scale(1); }
-    .love-note {
-      max-width: 800px;
-      margin: 40px auto;
-      font-size: 24px;
-      line-height: 1.8;
-      background: rgba(255, 255, 255, 0.15);
-      padding: 30px;
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      animation: fadeIn 4s ease-in-out;
-    }
-    .heart {
-      font-size: 40px;
-      animation: heartbeat 1.5s infinite;
-    }
-    iframe { display: none; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes heartbeat {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love Ranjith ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', cursive;
+    text-align: center;
+    background: linear-gradient(to bottom, #ff9ec4, #ffe6f0);
+    overflow-x: hidden;
+    color: #fff;
+}
+
+.container {
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 42px;
+    margin-top: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+p {
+    font-size: 22px;
+    max-width: 750px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+.gallery img {
+    width: 260px;
+    margin: 15px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    transition: transform 0.4s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+button {
+    background: #ff1a8c;
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-size: 22px;
+    cursor: pointer;
+    margin-top: 40px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+button:hover {
+    background: #e60073;
+}
+
+/* Floating Hearts */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    color: #ff4da6;
+    font-size: 24px;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1;}
+    100% { transform: translateY(-100vh); opacity: 0;}
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+/* Love Popup */
+#lovePopup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 105, 180, 0.95);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 999;
+}
+
+.popupText {
+    font-size: 40px;
+    padding: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Background Music: Anbil Avan -->
-  <iframe 
-    src="https://www.youtube.com/embed/1WZ9V1n6WcM?autoplay=1&loop=1&playlist=1WZ9V1n6WcM" 
-    allow="autoplay">
-  </iframe>
+<div class="container">
+    <h1>💖 For My Dearest Ranjith 💖</h1>
 
-  <div class="container">
-    <h1>Happy Valentine's Day, My Love ❤️</h1>
-    <div class="subtitle">A little surprise made with all my love just for you</div>
+    <button onclick="startSurprise()">💌 Tap to Open Your Valentine Surprise</button>
 
-    <div class="love-note">
-      From our first picture together to our beautiful wedding and our little girl's first month,
-      every moment with you is my favorite memory. 💕<br><br>
-      You are my happiness, my strength, and my forever.<br><br>
-      I love you more than words can ever express.
-      <div class="heart">💖</div>
+    <div id="content" style="display:none;">
+        <h1>Happy Valentine's Day My Love ❤️</h1>
+
+        <p>
+            Dear Ranjith,<br><br>
+            These 3 years of marriage with you have been the most beautiful journey of my life.  
+            From our first photo, our first dinner, our engagement, our wedding,
+            to our precious little family… every moment with you is pure love. 💕  
+            <br><br>
+            You are my happiness, my safe place, and my forever.  
+            Thank you for loving me, supporting me, and being my everything.  
+            <br><br>
+            I love you more and more every single day ❤️
+        </p>
+
+        <div class="gallery">
+            <img src="First picture of us.jpg">
+            <img src="First dinner together.jpg">
+            <img src="Engagement.jpg">
+            <img src="Our wedding moment.jpg">
+            <img src="Honeymoon.jpg">
+            <img src="Our little girl's first month pic.jpg">
+        </div>
+
+        <button onclick="showLove()">❤️ One Last Message ❤️</button>
     </div>
+</div>
 
-    <div class="gallery">
-      <div class="photo"><img src="First picture of us.jpg"></div>
-      <div class="photo"><img src="First dinner together.jpg"></div>
-      <div class="photo"><img src="Engagement.jpg"></div>
-      <div class="photo"><img src="Our wedding moment.jpg"></div>
-      <div class="photo"><img src="Honeymoon.jpg"></div>
-      <div class="photo"><img src="Our little girl's first month pic.jpg"></div>
+<!-- Final Love Popup -->
+<div id="lovePopup">
+    <div class="popupText">
+        I Love You Forever Ranjith 💖<br>
+        Happy Valentine's Day My Husband ❤️
     </div>
-  </div>
+</div>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <source src="anbil-avan.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function startSurprise() {
+    document.getElementById("content").style.display = "block";
+    document.getElementById("bgMusic").play();
+    createHearts();
+}
+
+function showLove() {
+    document.getElementById("lovePopup").style.display = "flex";
+}
+
+function createHearts() {
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (20 + Math.random() * 20) + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }, 500);
+}
+</script>
+
 </body>
 </html>
